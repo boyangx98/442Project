@@ -71,7 +71,6 @@ class InpaintCAModel(Model):
             x = x*mask + xin[:, :, :, 0:3]*(1.-mask)
             x.set_shape(xin[:, :, :, 0:3].get_shape().as_list())
             # conv branch
-            # xnow = tf.concat([x, ones_x, ones_x*mask], axis=3)
             xnow = x
             x = gen_conv(xnow, cnum, 5, 1, name='xconv1')
             x = gen_conv(x, cnum, 3, 2, name='xconv2_downsample')

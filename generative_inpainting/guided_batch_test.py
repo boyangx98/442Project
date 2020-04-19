@@ -29,7 +29,6 @@ parser.add_argument(
 
 if __name__ == "__main__":
     ng.get_gpus(1)
-    # os.environ['CUDA_VISIBLE_DEVICES'] =''
     args = parser.parse_args()
 
     sess_config = tf.ConfigProto()
@@ -58,7 +57,6 @@ if __name__ == "__main__":
         lines = f.read().splitlines()
     t = time.time()
     for line in lines:
-    # for i in range(100):
         image, mask, out = line.split()
         base = os.path.basename(mask)
 
@@ -68,10 +66,6 @@ if __name__ == "__main__":
         image = cv2.resize(image, (args.image_width, args.image_height))
         guidance = cv2.resize(guidance, (args.image_width, args.image_height))
         mask = cv2.resize(mask, (args.image_width, args.image_height))
-        # cv2.imwrite(out, image*(1-mask/255.) + mask)
-        # # continue
-        # image = np.zeros((128, 256, 3))
-        # mask = np.zeros((128, 256, 3))
 
         assert image.shape == mask.shape
 
