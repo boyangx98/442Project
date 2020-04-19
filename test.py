@@ -68,7 +68,7 @@ netG.load_state_dict(torch.load(
     opt.netG, map_location=lambda storage, location: storage)['state_dict'])
 netG.eval()
 
-transform = transforms.Compose([transforms.Scale(opt.imageSize),
+transform = transforms.Compose([transforms.Resize(opt.imageSize),
                                 transforms.CenterCrop(opt.imageSize),
                                 transforms.ToTensor(),
                                 transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
@@ -95,7 +95,7 @@ if opt.cuda:
 input_real = Variable(input_real)
 input_cropped = Variable(input_cropped)
 real_center = Variable(real_center)
-
+# import ipdb; ipdb.set_trace()
 dataiter = iter(dataloader)
 real_cpu, _ = dataiter.next()
 

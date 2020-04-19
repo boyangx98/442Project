@@ -4,3 +4,4 @@ __pycache__
 model
 dataset
 result
+generative_inpainting/model_logs
