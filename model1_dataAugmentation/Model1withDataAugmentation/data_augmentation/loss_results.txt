@@ -1,0 +1,42 @@
+
+L1 = l1 loss, l2 = l2 loss
+
+Mode 1 - decolor:
+Decolor the image!
+l2:  0.67428803
+l1:  0.7364275
+8.190376847560342
+
+
+Mode 2 - flip
+Flip the image!
+l2:  0.14538047
+l1:  0.2672774
+16.17681489288215
+
+
+Mode 3 - gaussian filter blur (one way of de-texturize):
+Blur the image!
+l2:  0.6750678
+l1:  0.7402982
+8.181647689209887
+(If the radius is smaller than 3, the processed image will have weird color and lots of glitch)
+
+Mode 4 - median filter blur (another way of de-texturize):
+Median fliter!
+l2:  0.6629567
+l1:  0.73034877
+8.252778572239547
+(Size of the filter is 3)
+
+Mode 5 - edge enhancement
+Edge enhancement!
+l2:  0.6544128
+l1:  0.7244767
+8.305529426824716
+
+Mode 6 - rotataion
+Rotate the image!
+l2:  0.20821415
+l1:  0.33091092
+14.507811481093201
