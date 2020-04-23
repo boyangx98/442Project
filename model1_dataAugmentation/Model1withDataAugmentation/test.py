@@ -107,7 +107,7 @@ real_center_cpu = real_cpu[:, :, int(opt.imageSize/4):int(opt.imageSize/4) +
 real_center.data.resize_(real_center_cpu.size()).copy_(real_center_cpu)
 
 #TODO: preprocessing the images
-mode = 1
+mode = 2
 recon_image = None
 #DA = DataAugmentation.DataAugmentation()
 #input_cropped_edited = None
@@ -227,10 +227,17 @@ vutils.save_image(recon_image.data, file_path+'val_recon_samples.png', normalize
 p = 0
 l1 = 0
 l2 = 0
+if (mode==6):
+    fake = torch.rot90(fake,dims=[2,3])
+    fake = torch.rot90(fake,dims=[2,3])
+    fake = torch.rot90(fake,dims=[2,3])
+if (mode==2):
+    fake= torch.flip(fake,dims=[3])
 fake = fake.data.numpy()
 real_center = real_center.data.numpy()
 
 t = real_center - fake
+
 l2 = np.mean(np.square(t))
 l1 = np.mean(np.abs(t))
 real_center = (real_center+1)*127.5
